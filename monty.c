@@ -10,9 +10,10 @@
  int interpreter(int argc, char *argv[])
  {
   // variables
-  char *line;
+  char *line; /*store the getline*/
   char **linecopy;
   size_t *len;
+  stack_t *top; /*pointer to top stack*/
     
   // file open: FILE *fopen(const char *file_name, const char *mode_of_operation);
   FILE *file_name = fopen(argv[1], 'r+');
@@ -28,7 +29,7 @@
     // string compare
     if(linecopy)
     {
-      string_compare(linecopy, &head);
+      string_compare(linecopy, &top);
       free(linecopy);
     }
   }

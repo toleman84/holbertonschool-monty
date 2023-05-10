@@ -1,4 +1,4 @@
-/** headers, structs and variables **/
+/** headers, structs and prototypes **/
 
 #ifdef
 #include <stdio.h>
@@ -34,3 +34,6 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+// prototypes
+

@@ -20,6 +20,7 @@
     while(getline(&line, &len, file_name))
     {
       // token
+      // string compare
     }
 
     // frees
@@ -31,5 +32,15 @@
  }
 
  // string compare
+
+ static compare array[]{
+   {'push', push},
+   {'function', comand}
+ };
+
+ void string_compare()
+ {
+   
+ }
 
  // string token

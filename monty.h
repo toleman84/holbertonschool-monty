@@ -3,7 +3,7 @@
 #ifdef
 #include <stdio.h>
 #include <stdlib.h>
-#ifndef
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -37,3 +37,5 @@ typedef struct instruction_s
 
 // prototypes
 
+int push(stack_t **stack, unsigned int line_number)
+#ifndef

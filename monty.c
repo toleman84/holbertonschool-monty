@@ -9,62 +9,78 @@
 
  int interpreter(int argc, char *argv[])
  {
-    // variables
-    char **line;
-    size_t *len;
+  // variables
+  char *line;
+  char **linecopy;
+  size_t *len;
     
-    // file open: FILE *fopen(const char *file_name, const char *mode_of_operation);
-    FILE *file_name = fopen(argv[1], 'r+');
+  // file open: FILE *fopen(const char *file_name, const char *mode_of_operation);
+  FILE *file_name = fopen(argv[1], 'r+');
 
-    // malloc: void *malloc(size_t size);
-    line = (char**) malloc(sizeof(char)*1000);
+  // malloc: void *malloc(size_t size);
+  line = (char*) malloc(sizeof(char) * 1000);
 
-    // getline: size_t getline (char **string, size_t *n, FILE *stream);
-    while(getline(&line, &len, file_name))
+  // getline: size_t getline (char **string, size_t *n, FILE *stream);
+  while(getline(&line, &len, file_name))
+  {
+    // token
+    linecopy = token(line);
+    // string compare
+    if(linecopy)
     {
-      // token
-      
-      // string compare
+      string_compare(linecopy, &head);
+      free(linecopy);
     }
+  }
 
-    // frees
-    free(line)
+  // frees
+  free(line);
 
-    // file close
-    fclose(file_name)
-    return (0);
- }
+  // file close
+  fclose(file_name);
+
+  return (0);
+}
+
+// ========================
 
  // string compare
 
- static compare array[]{
+ static instructions op_codes[]{
    {'push', push},
    {'function', comand}
  };
 
 /**
  * string_compare - Short description
- * @:
+ * @linecopy: first member
+ * @stack: second member
  * Return void 
  */
 
- void string_compare()
+ void string_compare(char **linecopy, stack_t **stack)
  {
   int index = 0;
 
-  while (array[index].opcode)
+  while (op_codes[index].opcode)
   {
    // int strcmp(const char *s1, const char *s2);
-   strcmp();
+   if (strcmp(linecopy, op_codes[index].opcode) == 0)
+   {
+    return (op_codes[index].f)
+   }
   }
+  return (NULL);
  }
+
+// ========================
 
 /**
  * token - Short description
  * 
  */
 
-int token()
+int token(char **line, )
 {
   // string token: char *strtok(char *restrict str, const char *restrict delim);
   strtok(line, '\t\r\a\n ;:');

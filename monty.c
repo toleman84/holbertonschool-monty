@@ -47,7 +47,7 @@
 
  // string compare
 
- static instructions op_codes[]{
+ static instructions op_codes[] = {
    {'push', push},
    {'function', comand}
  };
@@ -70,7 +70,13 @@
    {
     return (op_codes[index].f)
    }
+   index++;
   }
+  if (!(op_codes[index].opcode))
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token[0]);
+		exit(EXIT_FAILURE);
+	}
   return (NULL);
  }
 
@@ -83,6 +89,9 @@
 
 int token(char **line, )
 {
+  char token;
   // string token: char *strtok(char *restrict str, const char *restrict delim);
-  strtok(line, '\t\r\a\n ;:');
+  token = strtok(line, '\t\r\a\n ;:');
+
+  store = malloc((char) * 100);
 }

@@ -1,6 +1,8 @@
 /** headers, structs and prototypes **/
 
-#ifdef
+#ifndef _MONTY_H_
+#define _MONTY_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -38,4 +40,5 @@ typedef struct instruction_s
 // prototypes
 
 int push(stack_t **stack, unsigned int line_number)
-#ifndef
+#endif
+
